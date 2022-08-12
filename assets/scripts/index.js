@@ -16,15 +16,15 @@ let total = 0;
 let mensagem = "";
 let nome;
 let endereco;
-// while ((nome == null || nome == "") || (endereco == null || endereco == "")) {
-//   nome = prompt("Digite seu nome");
-//   endereco = prompt("Digite seu endereço");
-//   if (nome == null || endereco == null) {
-//     alert("Nome ou endereço obrigatórios");
-//     continue;
-//   }
-//   alert("Ok, agora é só escolher os 3 itens");
-// }
+while (nome == null || nome == "" || endereco == null || endereco == "") {
+  nome = prompt("Digite seu nome");
+  endereco = prompt("Digite seu endereço");
+  if (nome == null || endereco == null) {
+    alert("Nome ou endereço obrigatórios");
+    continue;
+  }
+  alert("Ok, agora é só escolher os 3 itens");
+}
 
 function ativaEvento(divs) {
   for (let i = 0; i < divs.length; i++) {
@@ -97,10 +97,6 @@ btn.addEventListener("click", (e) => {
     const divPedidos = Array.from(document.querySelectorAll(".escolido"));
     console.log(divPedidos);
 
-    // const pedidos = divPedidos.map(
-    //   (div) => div.querySelector(".prato")
-    // );
-
     let valorPrato;
     let valorBebida;
     let valorSobremesa;
@@ -166,42 +162,3 @@ btnCancelar.addEventListener("click", (e) => {
   e.preventDefault();
   location.reload();
 });
-
-// const sliderPrato = document.querySelector("#prato");
-// const sliderBebida = document.querySelector("#bebida");
-// const sliderSobremesa = document.querySelector("#sobremesa");
-
-// ativarSlider(sliderPrato);
-// ativarSlider(sliderBebida);
-// ativarSlider(sliderSobremesa);
-
-// function ativarSlider(slider) {
-//   let isDown = false;
-//   let startX;
-//   let scrollLeft;
-
-//   slider.addEventListener("touchstart", (e) => {
-//     isDown = true;
-//     // console.log(e.touches[0].pageX);
-//     // console.log(slider.offsetLeft);
-//     startX = e.touches[0].pageX - slider.offsetLeft;
-//     scrollLeft = slider.scrollLeft;
-//   });
-//   slider.addEventListener("touchcancel", () => {
-//     isDown = false;
-//   });
-//   slider.addEventListener("touchcancel", () => {
-//     isDown = false;
-//   });
-//   slider.addEventListener("touchleave", () => {
-//     isDown = false;
-//   });
-//   slider.addEventListener("touchmove", (e) => {
-//     if (!isDown) return;
-//     e.preventDefault();
-//     const x = e.touches[0].pageX - slider.offsetLeft;
-//     const walk = (x - startX) * 2; //scroll-fast
-//     slider.scrollLeft = scrollLeft - walk;
-//     console.log(walk);
-//   });
-// }
